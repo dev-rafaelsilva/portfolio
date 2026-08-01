@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rafael Silva — Engenheiro de Software Back-End</title>
+<meta name="description" content="Rafael Silva, Engenheiro de Software Back-End. Java, Spring Boot, RabbitMQ, PostgreSQL, Docker.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg" sizes="any">
+<link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    var saved = localStorage.getItem('theme');
+    document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+  })();
+</script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap site-header-inner">
+      <a class="wordmark" href="#top">Rafael Silva</a>
+      <nav class="nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#como-trabalho">Como trabalho</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar tema claro e escuro">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="12" y1="2" x2="12" y2="4"></line>
+            <line x1="12" y1="20" x2="12" y2="22"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="2" y1="12" x2="4" y2="12"></line>
+            <line x1="20" y1="12" x2="22" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+          </svg>
+        </button>
+        <a class="btn btn-primary btn-header" href="#contato">Contato</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Engenheiro de Software · Back-End Java</p>
+          <h1 class="hero-title">Back-end resiliente para alta demanda, filas cheias e integrações imprevisíveis.</h1>
+          <p class="hero-lede">
+            Engenheiro de Software Back-End focado em Java e Spring Boot — APIs REST,
+            mensageria com RabbitMQ e deploy containerizado com Docker.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+            <a class="btn btn-ghost" href="#contato">Entrar em contato →</a>
+          </div>
+          <p class="hero-meta">Ribeirão Preto, SP</p>
+        </div>
+
+        <div class="code-box">
+          <div class="code-box-bar">
+            <span class="code-box-file">PagamentoService.java</span>
+          </div>
+          <pre class="code-box-body"><code><span class="c">// processando pagamento com idempotência</span>
+
+<span class="kw">public</span> PaymentResult <span class="fn">process</span>(PaymentRequest request) {
+  <span class="kw">if</span> (repository.existsByIdempotencyKey(request.key())) {
+    <span class="kw">return</span> repository.findResult(request.key());
+  }
+  <span class="kw">var</span> result = gateway.charge(request);
+  repository.save(request.key(), result);
+  <span class="kw">return</span> result;
+  <span class="cursor">▊</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="wrap">
+        <p class="eyebrow">Sobre</p>
+        <div class="bio-card">
+          <div class="bio-card-head">
+            <h2>Rafael Silva</h2>
+            <p class="bio-role">Engenheiro de Software Back-End</p>
+          </div>
+          <p>
+            Construo serviços back-end pensando em como eles se comportam quando algo
+            dá errado — filas mortas, circuit breakers, idempotência em processamento
+            de eventos. Trabalho principalmente com Java e Spring Boot, e mantenho
+            ambientes reproduzíveis com Docker do desenvolvimento ao deploy.
+          </p>
+          <p>
+            Stack: Java, Spring Boot, Spring Security, Spring Data JPA, RabbitMQ,
+            PostgreSQL, MySQL, Docker. Experiência ponta a ponta em projetos autorais
+            e freelance: modelagem de domínio, API, mensageria e infraestrutura.
+          </p>
+          <p>
+            Formado em Análise e Desenvolvimento de Sistemas (UNIP, 2026).
+            Estuda diariamente Java e arquitetura de sistemas distribuídos.
+          </p>
+          <div class="bio-links">
+            <a href="https://linkedin.com/in/dev-rafaelsilva" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/dev-rafaelsilva" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="como-trabalho">
+      <div class="wrap">
+        <p class="eyebrow">Como trabalho</p>
+        <h2 class="section-title">Do problema ao serviço rodando</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step-num">01</span>
+            <h3>Entendo o contexto</h3>
+            <p>Antes de codar, mapeio objetivos, regras de negócio e riscos para projetar uma base sólida.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">02</span>
+            <h3>Planejo a arquitetura</h3>
+            <p>Defino domínio, API, mensageria e estratégias de recuperação antes de iniciar a implementação.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">03</span>
+            <h3>Entrego com confiança</h3>
+            <p>Testes, documentação e deploy em Docker garantem um serviço robusto e fácil de manter.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projetos">
+      <div class="wrap">
+        <p class="eyebrow">Projetos</p>
+        <h2 class="section-title">Projetos autorais em desenvolvimento</h2>
+
+        <div class="cases">
+
+          <article class="case">
+            <div class="case-top">
+              <span class="case-track">Projeto autoral</span>
+              <span class="case-status status-building">Em construção</span>
+            </div>
+            <h3 class="case-title">
+              <a href="https://github.com/dev-rafaelsilva/payreconcile" target="_blank" rel="noopener">PayReconcile</a>
+            </h3>
+            <p class="case-desc">
+              Plataforma de reconciliação financeira multi-gateway, estruturada como
+              monorepo de microsserviços com Domain-Driven Design.
+            </p>
+            <div class="case-meta">
+              <span>Java 21</span>
+              <span>Spring Boot 4</span>
+              <span>MySQL</span>
+              <span>RabbitMQ</span>
+              <span>Docker</span>
+            </div>
+            <a class="case-link" href="https://github.com/dev-rafaelsilva/payreconcile" target="_blank" rel="noopener">Ver repositório →</a>
+          </article>
+
+          <article class="case">
+            <div class="case-top">
+              <span class="case-track">Projeto autoral</span>
+              <span class="case-status status-live">Concluído</span>
+            </div>
+            <h3 class="case-title">
+              <a href="https://github.com/dev-rafaelsilva" target="_blank" rel="noopener">order-processing-service</a>
+            </h3>
+            <p class="case-desc">
+              Serviço de processamento de pedidos com circuit breaker, retry e fila
+              morta para mensagens que falham no processamento.
+            </p>
+            <div class="case-meta">
+              <span>Spring Boot 4</span>
+              <span>RabbitMQ</span>
+              <span>Resilience4j</span>
+              <span>Testcontainers</span>
+            </div>
+            <a class="case-link" href="https://github.com/dev-rafaelsilva" target="_blank" rel="noopener">Ver repositório →</a>
+          </article>
+
+          <article class="case">
+            <div class="case-top">
+              <span class="case-track">Projeto autoral</span>
+              <span class="case-status status-live">Concluído</span>
+            </div>
+            <h3 class="case-title">
+              <a href="https://github.com/dev-rafaelsilva/BackEndForge" target="_blank" rel="noopener">BackEndForge</a>
+            </h3>
+            <p class="case-desc">
+              Plataforma de geração de projetos Spring Boot para desenvolvedores
+              iniciantes, com autenticação e fila de eventos.
+            </p>
+            <div class="case-meta">
+              <span>Java 21</span>
+              <span>Spring Security</span>
+              <span>RabbitMQ</span>
+              <span>PostgreSQL</span>
+            </div>
+            <a class="case-link" href="https://github.com/dev-rafaelsilva/BackEndForge" target="_blank" rel="noopener">Ver repositório →</a>
+          </article>
+
+        </div>
+        <div class="projects-more" style="margin-top: 2rem; text-align: center;">
+          <p style="margin: 0 0 0.75rem; color: var(--ink-muted);">Veja mais projetos no meu GitHub.</p>
+          <a class="btn btn-primary" href="https://github.com/dev-rafaelsilva?tab=repositories" target="_blank" rel="noopener">Ver mais projetos →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt closing" id="contato">
+      <div class="wrap closing-inner">
+        <p class="closing-lede">Vamos conversar.</p>
+        <a class="btn btn-primary btn-lg" href="mailto:dev.rafaelsilva01@gmail.com">Enviar email →</a>
+        <div class="contact-list">
+          <a href="mailto:dev.rafaelsilva01@gmail.com">dev.rafaelsilva01@gmail.com</a>
+          <a href="https://linkedin.com/in/dev-rafaelsilva" target="_blank" rel="noopener">linkedin.com/in/dev-rafaelsilva</a>
+          <a href="https://github.com/dev-rafaelsilva" target="_blank" rel="noopener">github.com/dev-rafaelsilva</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <span class="wordmark">Rafael Silva</span>
+        <p class="footer-tagline">Engenheiro de Software Back-End especializado em Java e Spring Boot.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#como-trabalho">Como trabalho</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+    <div class="wrap">
+      <p class="footer-copy">© 2026 Rafael Silva · Ribeirão Preto, SP</p>
+    </div>
+  </footer>
+
+  <script>
+    var toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', function () {
+      var root = document.documentElement;
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  </script>
+
+</body>
+</html>
